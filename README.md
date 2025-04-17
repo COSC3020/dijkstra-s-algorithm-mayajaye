@@ -23,3 +23,37 @@ inefficient.
 
 What is the big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
+
+#### Runtime of this Dijkstra's Algorithm: $T(n)\in\Theta(|V|^{2} + |V||E|)$
+
+1. Initialize the dist to each vertex to inf, source to 0. $\Theta(|V|)$
+2. Initialize visited vertices as an object of false booleans. $\Theta(|V|)$
+3. While unvisited nodes remain: $\Theta(|V|)$
+	1. Find the unvisited v with the currently known shortest distance. $\Theta(|V|)$
+	2. If there isn't a reachable unvisited vertex, break. Otherwise, add the closest vertex to visited. $\Theta(1)$
+	3. For each w, find the minimum between the newfound dist to w and the current dist to w. $\Theta(|E|)$
+4. Return the distance $\Theta(1)$
+
+Runtime equation:
+$T(n) = |V| + |V| + |V| \cdot (|V| + 1 + |E|) + 1$
+
+$= 3|V| \cdot (|V| + 1 + |E|) + 1$
+
+Ignoring constant factors, the equation becomes:
+
+$T(n) = |V| \cdot (|V| + |E|)$
+
+$= |V|^{2} + |V||E|$
+
+So,
+$T(n)\in\Theta(|V|^{2} + |V||E|)$
+
+#### Sources
+
+I looked at [this](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/) for finding the minimum between the newfound dist to w and the current dist to w
+
+"I certify that I have listed all sources used to complete this exercise,
+including the use of any Large Language Models. All of the work is my own, except
+where stated otherwise. I am aware that plagiarism carries severe penalties and
+that if plagiarism is suspected, charges may be filed against me without prior
+notice."
